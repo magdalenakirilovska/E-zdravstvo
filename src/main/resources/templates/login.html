@@ -1,0 +1,91 @@
+<!--<script type="text/javascript" src="/js/custom.js"></script>-->
+<script type="text/javascript">
+
+    function MyFunction() {
+        var text1 = document.getElementById("username").value;
+        var text2 = document.getElementById("textt").value;
+        var zbor = text2.substring(12, text2.length-11);
+        if (text1 === zbor)
+        {
+            alert("Успешна автентикација!")
+        }
+        else
+        {
+            alert("Неуспешна автентикација!")
+
+        }
+
+    }
+    /*
+    function funk() {
+        var userName = document.getElementById("username").value;
+        if (document.getElementById("textt").value === "") {
+            if (userName === "admin " || userName === "doktor1" || userName === "doktor2" || userName === "doktor3") {
+                    alert("ERROR")
+            }
+        }
+    }
+    */
+    function funk() {
+        var text11 = document.getElementById("username").value;
+        if (document.getElementById("textt").value === "") {
+            if (text11 === "admin" || text11 === "doktor1" || text11 === "doktor2" || text11 === "doktor3") {
+                //document.location.replace('src/main/resources/templates/login.html');
+                alert("Задолжително внесете сертификат!");
+                document.getElementById("submitt").type = 'button';
+
+            }
+            if(text11 === "magdalena.kirilovska" || text11 === "teona.kostova" || text11 === "karolina.andovska" || text11 === "stefani.grbeva"){
+                document.getElementById("submitt").type = 'submit';
+            }
+        }
+        if(document.getElementById("textt").value !== ""){
+            if (text11 === "admin" || text11 === "doktor1" || text11 === "doktor2" || text11 === "doktor3") {
+                //document.location.replace('src/main/resources/templates/login.html');
+                document.getElementById("submitt").type = 'submit';
+
+            }
+        }
+        var text1 = document.getElementById("username").value;
+        var text2 = document.getElementById("textt").value;
+        var zbor = text2.substring(12, text2.length-11);
+        if (text11 === "admin" || text11 === "doktor1" || text11 === "doktor2" || text11 === "doktor3"){
+            if (text1 !== zbor)
+            {
+                document.getElementById("submitt").type = 'button';
+            }
+        }
+
+    }
+</script>
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+
+    <form class="form-signin mt-xl-5" method="post" action="/login">
+        <h2 class="form-signin-heading">Најави се</h2>
+        <p>
+            <label for="username" class="sr-only">Корисничко име</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Корисничко име" required=""
+                   autofocus="">
+        </p>
+        <p>
+            <label for="password" class="sr-only">Лозинка</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Лозинка"
+                   required="">
+        </p>
+
+
+        <div th:text="${param.error}" class="text-danger"></div>
+
+        <button id="submitt" class="btn btn-lg btn-primary btn-block" onclick="funk()" type="submit" >Најави се</button>
+    </form>
+
+    <div class="container mb-4">
+        <!--<form th:action="@{/login/upload}" method="post" enctype="multipart/form-data">-->
+        <form>
+            <label>Enter certificate</label>
+            <input type="file" id="textt" name="file">
+            <button type="button" id="btn" class="btn1" onclick="MyFunction()">Upload</button>
+        </form>
+    </div>
+
+</div>

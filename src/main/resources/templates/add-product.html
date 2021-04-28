@@ -1,0 +1,66 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Е-Здравство</h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="/termin/add" method="POST">
+                    <input id="id" type="hidden" name="id" th:value="(${termin} != null ? ${termin.getId()} : '')">
+                    <div class="form-group">
+                        <label for="year">Година</label>
+                        <input type="text"
+                               class="form-control"
+                               id="year"
+                               name="year"
+                               required
+                               placeholder="Внеси година">
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Месец</label>
+                        <input type="text"
+                               class="form-control"
+                               id="month"
+                               name="month"
+                               required
+                               placeholder="Внеси месец">
+                    </div>
+                    <div class="form-group">
+                        <label for="day">Ден</label>
+                        <input type="text"
+                               class="form-control"
+                               id="day"
+                               name="day"
+                               required
+                               placeholder="Внеси ден">
+                    </div>
+                    <div class="form-group">
+                        <label for="hour">Час</label>
+                        <input type="text"
+                               class="form-control"
+                               id="hour"
+                               name="hour"
+                               required
+                               placeholder="Внеси час">
+                    </div>
+                    <div class="form-group">
+                        <label for="min">Минути</label>
+                        <input type="text"
+                               class="form-control"
+                               id="min"
+                               name="min"
+                               required
+                               placeholder="Внеси минути">
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-primary">Внеси</button>
+                    <a type="button" class="btn btn-primary" href="/termin">Назад</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</th:block>

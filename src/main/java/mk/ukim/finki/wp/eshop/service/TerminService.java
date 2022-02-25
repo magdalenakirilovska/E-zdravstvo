@@ -20,7 +20,7 @@ public interface TerminService {
 
     Optional<Termin> edit(Long id, Calendar date);
 
-    Optional<Termin> zakazhi(Termin termin, User user);
+    Termin zakazhi(Termin termin, User user);
 
     void deleteById(Long id);
 }

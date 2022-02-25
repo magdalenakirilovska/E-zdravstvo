@@ -1,6 +1,7 @@
 package mk.ukim.finki.wp.eshop.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,7 +10,14 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Data
+@Entity
+@NoArgsConstructor
+@Table(name = "patient")
 public class User implements UserDetails{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String username;
 
@@ -26,9 +34,6 @@ public class User implements UserDetails{
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
-
-    public User() {
-    }
 
     public User(String username, String password, String name, String surname, Role role) {
         this.username = username;

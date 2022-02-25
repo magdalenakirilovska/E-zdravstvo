@@ -1,6 +1,6 @@
 package mk.ukim.finki.wp.eshop.service.impl;
 
-import mk.ukim.finki.wp.eshop.repository.impl.InMemoryUserRepository;
+import mk.ukim.finki.wp.eshop.repository.impl.UserRepository;
 import mk.ukim.finki.wp.eshop.model.User;
 import mk.ukim.finki.wp.eshop.model.exceptions.InvalidArgumentsException;
 import mk.ukim.finki.wp.eshop.model.exceptions.InvalidUserCredentialsException;
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthServiceImpl implements AuthService {
 
-    private final InMemoryUserRepository userRepository;
+    private final UserRepository userRepository;
 
-    public AuthServiceImpl(InMemoryUserRepository userRepository) {
+    public AuthServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
